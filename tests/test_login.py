@@ -20,7 +20,6 @@ def test_robi_website(page: Page):
     page.get_by_role("button", name="Confirm OTP").click()
     page.wait_for_timeout(3000)
 
-    # Check for incorrect OTP error message
     otp_error = page.locator(".MuiAlert-message, .otp-error, .error-message")
     if otp_error.is_visible():
         print("Test failed: Incorrect OTP entered. Error message displayed.")
