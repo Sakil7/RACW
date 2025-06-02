@@ -1,0 +1,34 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Pytest cache
+.pytest_cache/
+
+# Test reports (keep the directory but ignore content)
+reports/*.html
+reports/*.xml
+reports/*.json
+
+# Virtual environment
+venv/
+env/
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Playwright
+test-results/
+playwright-report/

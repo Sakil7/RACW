@@ -2,7 +2,15 @@ import pytest
 import re
 from playwright.sync_api import Page, expect
 
+@pytest.mark.smoke
+@pytest.mark.login
 def test_robi_website(page: Page):
+    """
+    Test Robi website login functionality including:
+    1. Invalid number validation
+    2. OTP verification
+    3. Error handling and retry mechanism
+    """
     page.goto("https://dev-web.robi.com.bd/")
     try:
         page.get_by_role("button", name=re.compile("Accept|Allow|I agree", re.IGNORECASE)).click(timeout=5000)
@@ -86,8 +94,3 @@ def test_robi_website(page: Page):
             print("Login successful after retry!")
     else:
         print("Login successful on first attempt!")
-    
-    # Continue with the rest of the flow after successful login
-    print("Proceeding with post-login actions...")
-    page.wait_for_load_state("networkidle")
-    
